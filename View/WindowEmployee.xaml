@@ -1,0 +1,34 @@
+﻿<Window x:Class="Novak_Lr1_3_BAI_24_01.View.WindowEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Сотрудники" Height="400" Width="700">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Background="#FFE4E9E0">
+            <Button Content="Добавить" Height="25" Width="100" Margin="10,10,5,10"
+                    Command="{Binding AddPerson}"/>
+            <Button Content="Редактировать" Height="25" Width="100" Margin="10,10,5,10"
+                    Command="{Binding EditPerson}"/>
+            <Button Content="Удалить" Height="25" Width="100" Margin="10,10,5,10"
+                    Command="{Binding DeletePerson}"/>
+        </StackPanel>
+        <ListView ItemsSource="{Binding ListPersonDpo}"
+                  SelectedItem="{Binding SelectedPersonDpo}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Код" Width="60"
+                                        DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Фамилия" Width="150"
+                                        DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Имя" Width="120"
+                                        DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="Должность" Width="150"
+                                        DisplayMemberBinding="{Binding RoleName}"/>
+                        <GridViewColumn Header="Дата рождения" Width="120"
+                                        DisplayMemberBinding="{Binding Birthday, StringFormat={}{0:dd}.{0:MM}.{0:yyyy}}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</Window>

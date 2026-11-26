@@ -1,0 +1,50 @@
+﻿<Window x:Class="NovakLR_4_1_BAI_24_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Сравнение сортировок (многопоточность)"
+        Height="450" Width="600">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Margin="3"
+               Content="Размер массива:"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="3"
+                 Text="{Binding ArraySize, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="0" Grid.Column="2" Margin="3"
+                Content="Сгенерировать" Command="{Binding GenerateArrayCommand}"/>
+
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Margin="3" TextWrapping="Wrap"
+                   Text="{Binding OriginalArrayString}"/>
+
+        <Button Grid.Row="2" Grid.Column="0" Margin="3" Width="120"
+                Content="Пузырьковая" Command="{Binding BubbleSortCommand}"/>
+        <Button Grid.Row="2" Grid.Column="1" Margin="3" Width="120"
+                Content="Быстрая" Command="{Binding QuickSortCommand}"/>
+        <Button Grid.Row="2" Grid.Column="2" Margin="3" Width="120"
+                Content="Вставками" Command="{Binding InsertionSortCommand}"/>
+
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Margin="3" TextWrapping="Wrap"
+                   Text="{Binding BubbleSortResult}"/>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="3" Margin="3" TextWrapping="Wrap"
+                   Text="{Binding QuickSortResult}"/>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="3" Margin="3" TextWrapping="Wrap"
+                   Text="{Binding InsertionSortResult}"/>
+
+        <TextBlock Grid.Row="6" Grid.ColumnSpan="3" Margin="3" FontWeight="Bold"
+                   Text="{Binding TotalComparisons}"/>
+    </Grid>
+</Window>
